@@ -1,0 +1,488 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Baúl de Texturas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Young+Serif&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF;
+  --surface:#FFFFFF;
+  --soft:#FBF1F5;
+  --ink:#2B1521;
+  --muted:#7A6172;
+  --line:#F0DCE6;
+  --brand:#AC356B;
+  --brand-ink:#FFFFFF;
+  --brand-deep:#7A2049;
+  --accent:#FFC93C;
+  --accent-ink:#2A1E00;
+  --rose:#F8DDE9;
+  --sale:#D9480F;
+  --t1:#F8D7EA; --t2:#E4DAFB; --t3:#FBE7A1; --t4:#CFE9F5; --t5:#FAD8C6;
+  --t1d:#EFB6D6; --t2d:#C9B8F2; --t3d:#F2CF62; --t4d:#A9D3E8; --t5d:#F0B899;
+  --shadow:0 12px 30px -14px rgba(172,53,107,.42);
+  --font-display:"Young Serif",Georgia,"Times New Roman",serif;
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.55;padding-inline:0}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+p{margin:0}
+svg{display:block}
+
+/* texturas */
+.ph{position:relative;overflow:hidden;background-color:var(--t1)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph::after{content:attr(data-foto);position:absolute;left:10px;bottom:8px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--ink);opacity:.55}
+.tex-knit{background-image:repeating-linear-gradient(60deg,transparent 0 6px,var(--t1d) 6px 8px),repeating-linear-gradient(-60deg,transparent 0 6px,var(--t1d) 6px 8px);background-color:var(--t1)}
+.tex-dots{background-image:radial-gradient(var(--t2d) 22%,transparent 24%);background-size:16px 16px;background-color:var(--t2)}
+.tex-stripe{background-image:repeating-linear-gradient(90deg,var(--t3d) 0 8px,transparent 8px 20px);background-color:var(--t3)}
+.tex-linen{background-image:repeating-linear-gradient(0deg,var(--t4d) 0 1px,transparent 1px 5px),repeating-linear-gradient(90deg,var(--t4d) 0 1px,transparent 1px 5px);background-color:var(--t4)}
+.tex-check{background-image:conic-gradient(var(--t5d) 25%,transparent 0 50%,var(--t5d) 0 75%,transparent 0);background-size:24px 24px;background-color:var(--t5)}
+
+/* barra superior */
+.topbar{background:var(--brand-deep);color:#FCE7F0;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;gap:12px;padding-block:8px;flex-wrap:wrap}
+.topbar span{display:inline-flex;align-items:center;gap:8px}
+.topbar .right{display:flex;gap:20px}
+
+/* header */
+.head{background:var(--surface);border-bottom:1px solid var(--line)}
+.head .wrap{display:flex;align-items:center;gap:20px;padding-block:14px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;color:var(--brand)}
+.logo-word{display:flex;flex-direction:column;line-height:1}
+.logo-word b{font-family:var(--font-display);font-weight:400;font-size:22px;letter-spacing:.02em;color:var(--ink)}
+.logo-word i{font-style:normal;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;color:var(--brand);margin-top:4px}
+.search{flex:1 1 280px;display:flex;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);overflow:hidden;min-width:0}
+.search input{flex:1;min-width:0;border:0;background:transparent;padding:11px 18px;font:inherit;color:var(--ink)}
+.search input:focus-visible{outline:none}
+.search:focus-within{border-color:var(--brand)}
+.search button{border:0;background:var(--brand);color:var(--brand-ink);padding:0 18px;display:grid;place-items:center}
+.actions{display:flex;gap:6px;margin-left:auto}
+.icon-btn{position:relative;width:42px;height:42px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center}
+.icon-btn:hover{background:var(--soft)}
+.badge{position:absolute;top:2px;right:0;background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:grid;place-items:center;padding-inline:4px}
+
+/* nav */
+.nav{background:var(--brand);color:var(--brand-ink)}
+.nav .wrap{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a,.nav button{white-space:nowrap;padding:14px 14px;font-weight:600;font-size:14px;border:0;background:transparent;color:inherit;display:inline-flex;gap:8px;align-items:center}
+.nav a:hover{background:rgba(255,255,255,.12)}
+.nav .all{background:var(--brand-deep);color:#fff;padding-inline:18px}
+.nav .sale{margin-left:auto;color:var(--accent)}
+
+/* hero */
+.hero{background:var(--soft)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center;padding-block:48px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--brand)}
+.eyebrow::before{content:"";width:26px;height:0;border-top:2px dashed var(--brand)}
+.hero h1{font-size:clamp(34px,5.2vw,58px);margin-block:14px 16px}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent) 62% 92%,transparent 92%)}
+.hero p.lead{color:var(--muted);max-width:46ch;font-size:16.5px}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{border:0;border-radius:999px;padding:13px 26px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px}
+.btn-primary{background:var(--brand);color:var(--brand-ink)}
+.btn-primary:hover{background:var(--brand-deep);color:#fff}
+.btn-ghost{background:transparent;border:2px solid var(--brand);color:var(--brand)}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.hero-facts{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
+.hero-facts div{display:flex;flex-direction:column}
+.hero-facts b{font-family:var(--font-display);font-weight:400;font-size:26px;color:var(--brand)}
+.hero-facts span{font-size:13px;color:var(--muted)}
+
+.collage{position:relative;aspect-ratio:1/0.95;max-width:520px;width:100%;margin-inline:auto}
+.collage .ph{position:absolute;border-radius:22px;box-shadow:var(--shadow);border:6px solid var(--surface)}
+.collage .c1{width:58%;height:64%;left:0;top:6%;transform:rotate(-4deg)}
+.collage .c2{width:48%;height:52%;right:0;top:0;transform:rotate(5deg)}
+.collage .c3{width:50%;height:44%;right:6%;bottom:0;transform:rotate(-2deg)}
+.stamp{position:absolute;left:4%;bottom:2%;width:118px;height:118px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;text-align:center;font-family:var(--font-display);font-size:15px;line-height:1.15;transform:rotate(-10deg);border:3px dashed var(--accent-ink);outline:5px solid var(--accent)}
+
+/* beneficios */
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-block:28px}
+.perk{display:flex;gap:14px;align-items:center}
+.perk .ico{flex:none;width:46px;height:46px;border-radius:14px;background:var(--rose);color:var(--brand);display:grid;place-items:center}
+.perk b{display:block;font-size:14.5px}
+.perk span{font-size:13px;color:var(--muted)}
+
+/* secciones */
+section{padding-block:28px}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(26px,3.4vw,34px)}
+.sec-head p{color:var(--muted);margin-top:6px}
+.link-more{color:var(--brand);font-weight:700;display:inline-flex;gap:6px;align-items:center;border-bottom:2px solid var(--accent)}
+
+/* categorías */
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.cat{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;font-weight:600;font-size:14px}
+.cat .ph{width:100%;aspect-ratio:1;border-radius:50%;border:4px solid var(--surface);box-shadow:var(--shadow);transition:transform .2s}
+.cat:hover .ph{transform:translateY(-4px)}
+.cat .ph::after{display:none}
+.cat small{display:block;color:var(--muted);font-weight:500;font-size:12.5px}
+
+/* promos */
+.promos{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.promo{position:relative;border-radius:24px;padding:32px;min-height:250px;display:flex;flex-direction:column;justify-content:center;gap:10px;overflow:hidden;isolation:isolate}
+.promo h3{font-size:clamp(24px,3vw,32px);max-width:14ch}
+.promo p{max-width:30ch;font-size:14.5px}
+.promo .btn{align-self:flex-start;margin-top:8px;padding:11px 22px}
+.promo-a{background:var(--brand);color:var(--brand-ink)}
+.promo-a p{opacity:.85}
+.promo-b{background:var(--rose);color:var(--ink)}
+.promo .deco{position:absolute;z-index:-1;border-radius:50%;right:-40px;bottom:-50px;width:230px;height:230px;opacity:.9;border:8px solid rgba(255,255,255,.25)}
+.promo-b .deco{border-color:var(--surface)}
+
+/* productos */
+.rail{display:flex;gap:18px;overflow-x:auto;padding:6px 4px 22px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.card{flex:0 0 232px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:12px;display:flex;flex-direction:column;gap:12px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .ph{aspect-ratio:1;border-radius:14px}
+.tag{position:absolute;top:10px;left:10px;z-index:1;background:var(--sale);color:#fff;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}
+.tag.new{background:var(--brand);color:var(--brand-ink)}
+.fav{position:absolute;top:8px;right:8px;z-index:1;width:34px;height:34px;border-radius:50%;border:0;background:var(--surface);color:var(--ink);display:grid;place-items:center}
+.card .meta{padding-inline:4px;display:flex;flex-direction:column;gap:4px}
+.cat-label{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.card h3{font-family:var(--font-body);font-weight:600;font-size:15.5px;line-height:1.3}
+.stars{display:flex;gap:2px;color:var(--accent)}
+.price{display:flex;align-items:baseline;gap:8px;font-variant-numeric:tabular-nums}
+.price b{font-size:18px}
+.price s{color:var(--muted);font-size:13px}
+.add{margin-top:auto;border:2px solid var(--brand);background:transparent;color:var(--brand);border-radius:999px;padding:9px 12px;font-weight:700;font-size:14px;display:flex;justify-content:center;gap:8px;align-items:center}
+.add:hover{background:var(--brand);color:var(--brand-ink)}
+.rail-arrows{display:flex;gap:8px}
+.arrow{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:var(--surface);display:grid;place-items:center}
+.arrow:hover{border-color:var(--brand);color:var(--brand)}
+
+/* banda regalo */
+.gift-band{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:28px;overflow:hidden;background:var(--soft)}
+.gift-band .ph{min-height:300px;border-radius:0}
+.gift-body{padding:40px;display:flex;flex-direction:column;justify-content:center;gap:14px}
+.gift-body h2{font-size:clamp(26px,3.2vw,36px)}
+.gift-body p{color:var(--muted);max-width:46ch}
+.steps{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.steps span{background:var(--surface);border:1px dashed var(--brand);color:var(--brand);border-radius:999px;padding:6px 14px;font-size:13.5px;font-weight:600}
+
+/* opiniones */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.quote p{font-size:15.5px}
+.quote footer{display:flex;align-items:center;gap:12px;margin-top:auto}
+.avatar{width:40px;height:40px;border-radius:50%;flex:none}
+.quote footer b{display:block;font-size:14px}
+.quote footer span{font-size:12.5px;color:var(--muted)}
+
+/* newsletter */
+.news{background:var(--brand);color:var(--brand-ink);border-radius:28px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.news h2{font-size:clamp(24px,3vw,32px)}
+.news p{opacity:.85;margin-top:8px}
+.news form{display:flex;gap:8px;background:var(--surface);padding:6px;border-radius:999px}
+.news input{flex:1;min-width:0;border:0;background:transparent;padding:10px 16px;font:inherit;color:var(--ink)}
+.news input:focus-visible{outline:none}
+.news form:focus-within{outline:3px solid var(--accent)}
+
+/* footer */
+footer.site{margin-top:40px;background:var(--brand-deep);color:#F6DCE8;padding-block:44px 24px}
+footer.site .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer.site .logo{color:var(--accent)}
+footer.site .logo-word b{color:#fff}
+footer.site .logo-word i{color:var(--accent)}
+footer.site h4{margin:0 0 12px;color:#fff;font-size:14px;letter-spacing:.1em;text-transform:uppercase}
+footer.site ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px}
+footer.site a:hover{color:var(--accent)}
+footer.site .about{font-size:14px;margin-top:14px;max-width:34ch}
+.socials{display:flex;gap:10px;margin-top:16px}
+.socials a{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);display:grid;place-items:center}
+.legal{border-top:1px solid rgba(255,255,255,.15);margin-top:32px;padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;opacity:.85}
+
+/* responsive */
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr;padding-block:32px}
+  .perks{grid-template-columns:repeat(2,1fr)}
+  .cats{grid-template-columns:repeat(3,1fr)}
+  .promos,.gift-band,.news,.quotes{grid-template-columns:1fr}
+  footer.site .cols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .topbar .right{display:none}
+  .head .wrap{gap:12px}
+  .search{order:3;flex-basis:100%}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .perks{grid-template-columns:1fr}
+  .gift-body,.news{padding:26px}
+  .promo{padding:24px}
+  .stamp{width:96px;height:96px;font-size:13px}
+  footer.site .cols{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c1-4 4-6 8-6s7 2 8 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.6 4.3 4.3 0 0 1 19.500 10c0 5.400-7.500 10-7.500 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6.500a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h11v10H2zM13 10h4l3 3v3h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7" cy="17.500" r="1.800" fill="var(--surface)" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="17.500" r="1.800" fill="var(--surface)" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="9" width="18" height="11" rx="1.500" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 9h20v3H2zM12 9v11M12 9C9 9 7.500 7.500 8.500 6S12 6 12 9zM12 9c3 0 4.500-1.500 3.500-3S12 6 12 9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5.500" width="18" height="13" rx="2.500" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 10h18" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.500-6-6.500-11a6.500 6.500 0 0 1 13 0c0 5-6.500 11-6.500 11z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="10" r="2.300" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.700 5.700 6.300.8-4.600 4.300 1.200 6.200L12 17l-5.600 3 1.200-6.200L3 9.500l6.300-.8z" fill="currentColor"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.200" stroke-linecap="round"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.700" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="7" r="1.100" fill="currentColor"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.300-4.200A8 8 0 1 1 8.300 19L4 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8.500c.5 3 2.500 5 5.500 6l1.200-1.300-2-1-.9.700c-.9-.4-1.700-1.200-2.100-2.100l.7-.9-1-2L9 8.500z" fill="currentColor"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24"><path d="M14 4v10.500a3.500 3.500 0 1 1-3.500-3.500M14 4c.4 2.500 2 4 4.500 4.200" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-logo" viewBox="0 0 56 52">
+      <path d="M6 24c0-9 8-16 22-16s22 7 22 16z" fill="currentColor"/>
+      <path d="M11 22c1-6 8-11 17-11" fill="none" stroke="var(--surface)" stroke-width="1.600" stroke-linecap="round" stroke-dasharray="3 3" opacity=".8"/>
+      <rect x="6" y="24" width="44" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="3.200"/>
+      <path d="M13 30v10M20 30v10M36 30v10M43 30v10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="1.500 3.500" opacity=".7"/>
+      <rect x="22.500" y="20" width="11" height="12" rx="3" fill="var(--accent)" stroke="currentColor" stroke-width="2.400"/>
+      <circle cx="28" cy="25" r="1.700" fill="currentColor"/>
+      <path d="M28 26v3" stroke="currentColor" stroke-width="1.800" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><svg width="16" height="16"><use href="#i-truck"/></svg> Envíos a toda Colombia. Gratis desde $120.000</span>
+    <div class="right">
+      <span><svg width="16" height="16"><use href="#i-pin"/></svg> Bogotá, Colombia</span>
+      <span><svg width="16" height="16"><use href="#i-msg"/></svg> Pedidos por WhatsApp</span>
+    </div>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Baúl de Texturas, inicio">
+      <svg width="52" height="48"><use href="#i-logo"/></svg>
+      <span class="logo-word"><b>Baúl de Texturas</b><i>Regalitos</i></span>
+    </a>
+    <form class="search" onsubmit="return false" role="search">
+      <input id="buscar" type="search" placeholder="Busca scrunchies, llaveros, cajitas sorpresa..." aria-label="Buscar productos">
+      <button type="button" aria-label="Buscar"><svg width="20" height="20"><use href="#i-search"/></svg></button>
+    </form>
+    <div class="actions">
+      <button type="button" class="icon-btn" aria-label="Mi cuenta"><svg width="24" height="24"><use href="#i-user"/></svg></button>
+      <button type="button" class="icon-btn" aria-label="Favoritos"><svg width="24" height="24"><use href="#i-heart"/></svg><span class="badge">3</span></button>
+      <button type="button" class="icon-btn" aria-label="Carrito"><svg width="24" height="24"><use href="#i-bag"/></svg><span class="badge">2</span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Categorías">
+  <div class="wrap">
+    <button type="button" class="all"><svg width="18" height="18"><use href="#i-menu"/></svg> Todas las categorías</button>
+    <a href="#">Accesorios para el pelo</a>
+    <a href="#">Aretes y collares</a>
+    <a href="#">Llaveros</a>
+    <a href="#">Peluches</a>
+    <a href="#">Cajitas sorpresa</a>
+    <a href="#">Desayunos sorpresa</a>
+    <a href="#" class="sale">Ofertas</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Colección de temporada</span>
+        <h1>Regalitos con <em>textura</em>, para dar y para guardar</h1>
+        <p class="lead">Accesorios suaves, tejidos y hechos a mano para sorprender a quien quieres. Elige, nosotros lo empacamos con moño y tarjeta.</p>
+        <div class="cta-row">
+          <button type="button" class="btn btn-primary">Comprar ahora <svg width="18" height="18"><use href="#i-right"/></svg></button>
+          <button type="button" class="btn btn-ghost">Armar un combo</button>
+        </div>
+        <div class="hero-facts">
+          <div><b>+250</b><span>regalitos en el baúl</span></div>
+          <div><b>24 h</b><span>despacho en Bogotá</span></div>
+          <div><b>100%</b><span>empaque de regalo</span></div>
+        </div>
+      </div>
+      <div class="collage">
+        <div class="ph c1" data-foto=""><img src="img/portada-belleza.jpg" alt="Caja de regalo con productos de belleza y moño rosado"></div>
+        <div class="ph c2" data-foto=""><img src="img/portada-hombre.jpg" alt="Caja de regalo para hombre con moños azules" style="object-position:center 60%"></div>
+        <div class="ph c3" data-foto=""><img src="img/portada-cerveza.jpg" alt="Canasta de madera con cervezas y dulces"></div>
+        <div class="stamp">Hecho para regalar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap perks">
+    <div class="perk"><span class="ico"><svg width="24" height="24"><use href="#i-truck"/></svg></span><div><b>Envío a todo el país</b><span>Gratis desde $120.000</span></div></div>
+    <div class="perk"><span class="ico"><svg width="24" height="24"><use href="#i-gift"/></svg></span><div><b>Empaque de regalo</b><span>Moño y papel incluidos</span></div></div>
+    <div class="perk"><span class="ico"><svg width="24" height="24"><use href="#i-msg"/></svg></span><div><b>Tarjeta dedicatoria</b><span>Escribimos tu mensaje</span></div></div>
+    <div class="perk"><span class="ico"><svg width="24" height="24"><use href="#i-card"/></svg></span><div><b>Paga como quieras</b><span>Nequi, tarjeta o contraentrega</span></div></div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2>Abre el baúl por textura</h2><p>Cada categoría se siente distinta.</p></div>
+        <a class="link-more" href="#">Ver todo <svg width="16" height="16"><use href="#i-right"/></svg></a>
+      </div>
+      <div class="cats">
+        <a class="cat" href="#"><div class="ph"><img src="img/cat-tejidos.jpg" alt="Caja tejida en crochet lila con moño"></div>Tejidos<small>28 productos</small></a>
+        <a class="cat" href="#"><div class="ph"><img src="img/cat-scrunchies.jpg" alt="Scrunchies de satín con cartera rosada"></div>Scrunchies<small>34 productos</small></a>
+        <a class="cat" href="#"><div class="ph"><img src="img/cat-aretes.jpg" alt="Aretes dorados en estuche"></div>Aretes<small>41 productos</small></a>
+        <a class="cat" href="#"><div class="ph"><img src="img/cat-llaveros.jpg" alt="Llavero con fotos personalizadas"></div>Llaveros<small>22 productos</small></a>
+        <a class="cat" href="#"><div class="ph"><img src="img/cat-desayunos.jpg" alt="Desayuno sorpresa en caja con moño rojo" style="object-position:center 62%"></div>Desayunos sorpresa<small>19 productos</small></a>
+        <a class="cat" href="#"><div class="ph"><img src="img/cat-cajitas.jpg" alt="Cajas de regalo en forma de corazón"></div>Cajitas<small>12 productos</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap promos">
+      <div class="promo promo-a">
+        <span class="eyebrow" style="color:var(--accent)">Combos</span>
+        <h3>Arma tu cajita de regalo</h3>
+        <p>Elige 3 accesorios y el empaque va por nuestra cuenta.</p>
+        <button type="button" class="btn btn-accent">Armar mi cajita</button>
+        <div class="deco tex-stripe" style="background-color:var(--t3)"></div>
+      </div>
+      <div class="promo promo-b">
+        <span class="eyebrow">Solo esta semana</span>
+        <h3>20% en aretes de resina</h3>
+        <p>Colores pastel para todos los días.</p>
+        <button type="button" class="btn btn-primary">Ver ofertas</button>
+        <div class="deco tex-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div><h2>Lo más pedido</h2><p>Los regalitos que más salen del baúl.</p></div>
+        <div class="rail-arrows">
+          <button type="button" class="arrow" aria-label="Anterior"><svg width="18" height="18"><use href="#i-left"/></svg></button>
+          <button type="button" class="arrow" aria-label="Siguiente"><svg width="18" height="18"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="rail">
+        <article class="card">
+          <div class="ph" data-foto=""><span class="tag">-20%</span><button type="button" class="fav" aria-label="Guardar"><svg width="18" height="18"><use href="#i-heart"/></svg></button><img src="img/prod-scrunchie.jpg" alt="Scrunchies de terciopelo rosa sobre mármol"></div>
+          <div class="meta"><span class="cat-label">Scrunchies</span><h3>Scrunchie de terciopelo rosa</h3>
+            <div class="stars"><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg></div>
+            <div class="price"><b>$9.900</b><s>$12.400</s></div></div>
+          <button type="button" class="add"><svg width="18" height="18"><use href="#i-bag"/></svg> Agregar</button>
+        </article>
+        <article class="card">
+          <div class="ph" data-foto=""><span class="tag new">Nuevo</span><button type="button" class="fav" aria-label="Guardar"><svg width="18" height="18"><use href="#i-heart"/></svg></button><img src="img/prod-llavero.jpg" alt="Llaveros de pompón con moños de colores"></div>
+          <div class="meta"><span class="cat-label">Llaveros</span><h3>Llavero de pompón con moño</h3>
+            <div class="stars"><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg></div>
+            <div class="price"><b>$7.500</b></div></div>
+          <button type="button" class="add"><svg width="18" height="18"><use href="#i-bag"/></svg> Agregar</button>
+        </article>
+        <article class="card">
+          <div class="ph" data-foto=""><button type="button" class="fav" aria-label="Guardar"><svg width="18" height="18"><use href="#i-heart"/></svg></button><img src="img/prod-aretes.jpg" alt="Aretes con forma de pastelito de fresa"></div>
+          <div class="meta"><span class="cat-label">Aretes</span><h3>Aretes de pastelito de fresa</h3>
+            <div class="stars"><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg></div>
+            <div class="price"><b>$14.900</b></div></div>
+          <button type="button" class="add"><svg width="18" height="18"><use href="#i-bag"/></svg> Agregar</button>
+        </article>
+        <article class="card">
+          <div class="ph" data-foto=""><span class="tag">-15%</span><button type="button" class="fav" aria-label="Guardar"><svg width="18" height="18"><use href="#i-heart"/></svg></button><img src="img/prod-caja.jpg" alt="Caja de regalo roja abierta con moño de satín"></div>
+          <div class="meta"><span class="cat-label">Cajitas</span><h3>Caja de regalo roja con moño</h3>
+            <div class="stars"><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg></div>
+            <div class="price"><b>$39.900</b><s>$46.900</s></div></div>
+          <button type="button" class="add"><svg width="18" height="18"><use href="#i-bag"/></svg> Agregar</button>
+        </article>
+        <article class="card">
+          <div class="ph" data-foto=""><span class="tag new">Nuevo</span><button type="button" class="fav" aria-label="Guardar"><svg width="18" height="18"><use href="#i-heart"/></svg></button><img src="img/prod-osos.jpg" alt="Ositos de tela con retazos de colores"></div>
+          <div class="meta"><span class="cat-label">Peluches</span><h3>Ositos de tela patchwork</h3>
+            <div class="stars"><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg><svg width="14" height="14"><use href="#i-star"/></svg></div>
+            <div class="price"><b>$24.900</b></div></div>
+          <button type="button" class="add"><svg width="18" height="18"><use href="#i-bag"/></svg> Agregar</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="gift-band">
+        <div class="ph tex-check" data-foto="Foto de empaque"></div>
+        <div class="gift-body">
+          <span class="eyebrow">Sin complicaciones</span>
+          <h2>Tú eliges el regalito, nosotros lo dejamos listo</h2>
+          <p>Cada pedido sale con papel, moño y una tarjeta escrita con tu mensaje. Solo falta la sonrisa de quien lo abre.</p>
+          <div class="steps"><span>Escoge</span><span>Escribe tu mensaje</span><span>Recíbelo empacado</span></div>
+          <div><button type="button" class="btn btn-primary" style="margin-top:8px">Empezar mi regalo</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head"><div><h2>Quienes ya abrieron el baúl</h2></div></div>
+      <div class="quotes">
+        <div class="quote">
+          <div class="stars"><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg></div>
+          <p>Pedí una cajita para el cumpleaños de mi hermana y llegó divina, con tarjeta y todo. Se puso a llorar.</p>
+          <footer><span class="avatar tex-knit"></span><div><b>Valentina R.</b><span>Bogotá</span></div></footer>
+        </div>
+        <div class="quote">
+          <div class="stars"><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg></div>
+          <p>Los scrunchies son suavísimos y los colores son iguales a la foto. Ya voy por mi tercer pedido.</p>
+          <footer><span class="avatar tex-dots"></span><div><b>Camila P.</b><span>Medellín</span></div></footer>
+        </div>
+        <div class="quote">
+          <div class="stars"><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg><svg width="16" height="16"><use href="#i-star"/></svg></div>
+          <p>Llegó en dos días y bien empacado. Los llaveros de pompón quedaron perfectos para los detalles de la oficina.</p>
+          <footer><span class="avatar tex-stripe"></span><div><b>Andrés M.</b><span>Cali</span></div></footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="news">
+        <div>
+          <h2>Novedades del baúl</h2>
+          <p>Entérate primero de lanzamientos y descuentos.</p>
+        </div>
+        <form onsubmit="return false">
+          <input id="correo" type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico">
+          <button type="button" class="btn btn-accent">Suscribirme</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <a class="logo" href="#"><svg width="52" height="48"><use href="#i-logo"/></svg><span class="logo-word"><b>Baúl de Texturas</b><i>Regalitos</i></span></a>
+        <p class="about">Accesorios y detalles con textura para regalar, hechos con cariño desde Bogotá.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18"><use href="#i-ig"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="18" height="18"><use href="#i-tt"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="18" height="18"><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Tienda</h4><ul><li><a href="#">Accesorios para el pelo</a></li><li><a href="#">Aretes y collares</a></li><li><a href="#">Llaveros</a></li><li><a href="#">Cajitas sorpresa</a></li></ul></div>
+      <div><h4>Ayuda</h4><ul><li><a href="#">Cómo comprar</a></li><li><a href="#">Envíos y entregas</a></li><li><a href="#">Cambios y devoluciones</a></li><li><a href="#">Preguntas frecuentes</a></li></ul></div>
+      <div><h4>Contacto</h4><ul><li>Bogotá, Colombia</li><li>Lunes a sábado, 9 a. m. a 6 p. m.</li><li>WhatsApp: agrega tu número</li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 Baúl de Texturas. Todos los derechos reservados.</span><span>Términos y condiciones · Política de privacidad</span></div>
+  </div>
+</footer>
+
+</body></html>
